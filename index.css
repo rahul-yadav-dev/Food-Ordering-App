@@ -1,13 +1,13 @@
 .header {
   display: flex;
-  /* border: solid black; */
   justify-content: space-between;
   place-items: center;
+  border: solid black;
 }
 
 .logo {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 
 .nav-bar {
@@ -28,43 +28,24 @@
   font-size: x-large;
 }
 
-.search-bar {
-width: 50%;
-margin: auto;
-padding-top: 10px;
-}
-
-.search-text {
-  height: 40px;
-  width: 50%;
-  margin-left: 40px;
-  font-size: medium;
-}
-
-.search-icon {
-  width: 20px;
-  height: 30px;
-}
 
 .res-container {
+  margin-right: 10px;
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
-}
-
-.res-image{
-  display: flex;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 20px;
 }
 
 .res-card {
+  border-style: outset;
   margin: 10px 60px ;
   height: 450px;
-  width: 300px;
+  width: 200px;
   background-color: #f0f0f0;
 }
 
 .res-image {
-  /* margin: 10px; */
-  width: 300px;
+  width: 200px;
   height: 180px;
   border-radius: 25px;
   background-position: left top;
@@ -74,4 +55,9 @@ padding-top: 10px;
 .lightWeight{
   font-weight: lighter;
   margin-top: 10px;
+  font-style: italic;
+}
+
+.filter-btn{
+  margin: 10px
 }
