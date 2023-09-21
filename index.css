@@ -16,7 +16,6 @@
 }
 
 .nav-bar ul {
-  /* border: solid red; */
   float: right;
   margin: 0;
   display: flex;
@@ -28,7 +27,6 @@
   font-size: x-large;
 }
 
-
 .res-container {
   margin-right: 10px;
   display: grid;
@@ -38,7 +36,7 @@
 
 .res-card {
   border-style: outset;
-  margin: 10px 60px ;
+  margin: 10px 60px;
   height: 450px;
   width: 200px;
   background-color: #f0f0f0;
@@ -52,12 +50,55 @@
   background-repeat: repeat;
 }
 
-.lightWeight{
+.lightWeight {
   font-weight: lighter;
   margin-top: 10px;
   font-style: italic;
 }
 
-.filter-btn{
-  margin: 10px
+.filter-btn {
+  margin: 10px;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 200px;
+  background: lightgray;
+  margin: 20px;
+}
+
+.login-btn {
+  background-color: rgb(1, 222, 214);
+  cursor: pointer;
+  /* border-radius: 30px; */
+  padding: 0px 10px;
+}
+
+.filter {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-btn {
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 300px;
+  height: 35px;
+  background-color: aqua;
+  cursor: pointer;
+}
+
+.search-input {
+  width: 300px;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.search-button {
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
 }
