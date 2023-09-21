@@ -35,7 +35,7 @@ const Body = () => {
             const filteredRestaurant = resList.filter(
               (restaurant) => restaurant.info.avgRating > 4
             );
-            setResList(filteredRestaurant);
+            setFilteredResList(filteredRestaurant);
           }}
         >
           top-rated-restaurant
