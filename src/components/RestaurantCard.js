@@ -3,7 +3,7 @@ import { cdnUrl, restaurantApi } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  console.log(resData);
+
   return (
     <Link to={"/restaurants/" + resData.id}>
       <div className="res-card">

@@ -3,7 +3,6 @@ import { useState } from "react";
 const User = (props) => {
   const { logo } = props;
   const [count, setCount] = useState(0);
-  console.log("rendered");
   return (
     <div className="user-card">
       <h1>UserName: Rahul Yadav</h1>

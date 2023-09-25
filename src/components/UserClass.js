@@ -8,7 +8,7 @@ class UserClass extends React.Component {
   async componentDidMount() {
     const data = await fetch(`https://api.github.com/users/${this.props.name}`);
     const userData = await data.json();
-    console.log(userData);
+
     this.setState({ avatar: userData.avatar_url });
   }
 
