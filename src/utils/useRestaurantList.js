@@ -10,14 +10,16 @@ const useRestaurantList = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.8660&lng=77.8905&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const jsonData = await data.json();
     setResList(
-      jsonData.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+      jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
     );
     setFilteredResList(
-      jsonData.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+      jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
     );
   };
 
