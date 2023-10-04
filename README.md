@@ -81,34 +81,33 @@ Tailwind CSS: [Trending Today]
 - That's all we need for postcss
 
 Tailwind.config.js(modification)
-- content array takes the path of all the files where html can be used ex: "./src/**/*.{html,js,ts,jsx,tsx}",
-in html, js, ts, jsx and tsx files tailwind can be used.
+
+- content array takes the path of all the files where html can be used ex: "./src/\*_/_.{html,js,ts,jsx,tsx}",
+  in html, js, ts, jsx and tsx files tailwind can be used.
 
 import css from tailwind css in css file:
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 Using tailwind
+
 - Tailwind css gives you classname for every css that u want to write
   ex: background: red Directly use:
   width increase: use classname directly
+
   1. flex: keep item side by side
   2. w-8: specify width
-  3. flex- horizontallly bring all items + items: center bring them vertically at the center 
+  3. flex- horizontallly bring all items + items: center bring them vertically at the center
 
   An element will take width of the parent if not wrapped in a div
 
   rounded-lg: Round corner buttons
   w-[400px]: Dynamic classes, If certain size not present
-  
 
   flex + justify-center: Align items in ceter
   rounded -lg : make image corener rounded
 
-
   control+spacebar: starts giving suggestions
 
-  small size tailwind: light weight + use only classes that are used, m-4 used 10 times will only import once 
-  
+  small size tailwind: light weight + use only classes that are used, m-4 used 10 times will only import once
