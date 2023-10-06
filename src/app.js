@@ -12,7 +12,13 @@ import UserContext from "./utils/UserContext";
 const Grocerry = lazy(() => import("./components/Grocerry"));
 
 const AppLayout = () => {
-  const [username, setUsername] = useState("new user");
+  const [username, setUsername] = useState();
+
+  useEffect(() => {
+    // Authentication logic
+    const data = { username: "Rahul Yadav" };
+    setUsername(data.username);
+  }, []);
 
   return (
     <div className="app">
