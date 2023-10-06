@@ -1,6 +1,5 @@
-import User from "./User";
+import UserContext from "../utils/UserContext";
 import UserClass from "./UserClass";
-import { logoUrl } from "../utils/constants";
 import React from "react";
 
 class About extends React.Component {
@@ -18,6 +17,11 @@ class About extends React.Component {
     return (
       <div className="about">
         <h1>About</h1>
+        <UserContext.Consumer>
+          {(data) => {
+            return <div className="font-bold">{data.loggedInUser}</div>;
+          }}
+        </UserContext.Consumer>
         <div className="contact-details">
           <UserClass name="rahulyadav3766" />
         </div>

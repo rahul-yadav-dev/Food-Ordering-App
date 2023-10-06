@@ -1,35 +1,41 @@
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurantData from "../utils/useRestaurantData";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const Restaurant = () => {
   const { restId } = useParams();
   const restData = useRestaurantData(restId);
+  const [showIndex, setShowIndex] = useState(0);
 
   if (!restData) return <Shimmer />;
 
-  const restDetails = restData.data.cards[0].card.card.info;
-  const recommendedMenuItems =
-    restData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-      .itemCards;
+  const restDetails = restData?.data?.cards[0]?.card?.card?.info;
+
+  const categories =
+    restData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (item) =>
+        item.card.card["@type"] ==
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
   return (
-    <div>
-      <h1>{restDetails.name}</h1>
-      <ul>
-        <li>Rating: {restDetails.avgRating}</li>
-        <li>Cuisines: {restDetails.cuisines.join(", ")}</li>
-        <li>{restDetails.costForTwoMessage}</li>
-        <li>{restDetails.sla.lastMileTravel + " Kms Away"}</li>
-        <li>
-          Menu:
-          <ul>
-            {recommendedMenuItems.map((item) => {
-              return <li key={item.card.info.id}>{item.card.info.name}</li>;
-            })}
-          </ul>
-        </li>
-      </ul>
+    <div className="text-center ">
+      <h1 className=" font-bold my-6 text-2xl">{restDetails.name}</h1>
+      <p className="font-bold">
+        {restDetails.cuisines.join(", ")} - {restDetails.costForTwoMessage}
+      </p>
+      {categories.map((category, index) => (
+        <RestaurantCategory
+          key={category.card.card.title}
+          data={category?.card?.card}
+          showCategory={index === showIndex}
+          setShowIndex={() => {
+            setShowIndex(showIndex === index ? null : index);
+          }}
+        />
+      ))}
     </div>
   );
 };

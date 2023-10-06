@@ -1,13 +1,19 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import RestaurantCard, {
+  FreeDeliveryRestaurantComponent,
+} from "./RestaurantCard";
+import { useContext, useState } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurantList from "../utils/useRestaurantList";
+import UserContext from "../utils/UserContext";
+
+const FreeResComponent = FreeDeliveryRestaurantComponent();
 
 const Body = () => {
   const [queryString, setQueryString] = useState("");
   const { resList, filteredResList, setFilteredResList } = useRestaurantList();
   const onlineStatus = useOnlineStatus();
+  const { loggedInUser, setUsername } = useContext(UserContext);
 
   if (!onlineStatus)
     return (
@@ -34,9 +40,7 @@ const Body = () => {
           top-rated-restaurant
         </button>
 
-        <div className="relative">
-          
-        </div>
+        <div className="relative"></div>
         <input
           type="text "
           className="m-4 block border border-gray-300 rounded-lg p-4 w-[600px] focus:ring-blue-500 "
@@ -62,11 +66,31 @@ const Body = () => {
         >
           Search
         </button>
+
+        <input
+          type="text "
+          className="m-4 block border border-gray-300 rounded-lg p-4 w-[200px] focus:ring-blue-500 "
+          placeholder="UserName"
+          value={loggedInUser}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
       </div>
       <div className="flex flex-wrap">
-        {filteredResList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
-        ))}
+        {filteredResList.map((restaurant) => {
+          return restaurant.info.type == "F" ? (
+            <FreeResComponent
+              key={restaurant.info.id}
+              resData={restaurant.info}
+            />
+          ) : (
+            <RestaurantCard
+              key={restaurant.info.id}
+              resData={restaurant.info}
+            />
+          );
+        })}
       </div>
     </div>
   );

@@ -111,3 +111,49 @@ Using tailwind
   control+spacebar: starts giving suggestions
 
   small size tailwind: light weight + use only classes that are used, m-4 used 10 times will only import once
+
+Accordian: Collapse and show
+Title is a span: ?
+
+margin-auto: if parent has text center than this element will come in center
+width: 6/12 only half of the total width will be assigned to the element
+items sticking together so: mx-auton and my-4 upeer and bottom will be asigned
+flex + justify-between: keep one item left another in rightmost and one in center
+
+If alignment of two items of div is problematic (images are not of uniform size), give
+width to each (content and image ex: 9/12 and 3/12) this will fix the issue
+
+label: absolute will overlap on the image
+
+Controlled Component and Uncontrolled Component: Controlled from the parent, when children does not have it's own state but state is passed from the parent: This is also called Lifting the state up
+
+_Creating Context(global data)_: Advisable when multiple components are using same data and prop drilling is occuring:
+const UserContext = CreateContext({loggedInUser: 'Default user'});
+export default UserContext;
+
+_Using context:_
+
+- Functional Components: const {loggedInUser} = useContext(UserContext)
+- classBased Components(No hooks): <UserContext.Consumer> {(data)=>{console.log(data)}}</UserContext.Consumer>
+
+_Changing the value of a context from a place_
+Basically from app level lets say you have to use a value of logged in user i.e for all the inside components when you ask for data from usercontext you want to give the loggedInUser not the default one.
+
+For this:
+At app level-
+
+1. import UserContext
+2. Make a state variable of the data you want to update in context
+3. useEffect -> Api call for getting auth data, setUserName got from the username
+4. Wrap whole App(div) inside <UserContext.Provider value={{loggedInUser: username}}> <div>App here</div></UserContext.Provider>
+
+Note: Whatever you wrap in <UserContext.Provider> will get the updated data rest will get the old value
+Done :)
+
+Global space, different for diffrent parts, can create multiple contexts.
+Generally when we have to access something in whole app we wrap whole app inside UserContext.Provider
+
+Nested Provider ?
+Yes closed value of context set to the component will be provided for the component
+Dont provide => default value
+
