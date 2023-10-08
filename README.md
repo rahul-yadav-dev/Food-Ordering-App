@@ -157,3 +157,47 @@ Nested Provider ?
 Yes closed value of context set to the component will be provided for the component
 Dont provide => default value
 
+Episode 12- Let's build our store
+
+# Redux-Toolkit: 
+- Use to manage state
+- Redux is not mandatory
+- Use Redux wisely and when it is required
+- React and Redux are different
+- To use redux the application doesn't need to be react application
+- Two libraries offered: React-Redux and Redux Toolkit(newer way of writing redux)
+- Another option is zustand for state management
+
+why use ?
+- when building large scare application, redux offers many functionality which eases the process of state management
+- Application become easier to debug
+
+# Steps:
+- Install @reduxjs/toolkit react-redux
+- Build our store
+- Connect our store to the app
+- Create a cart slice to add items to the cart
+- Dispatch Action
+- Read the selector
+
+# Note (very important): 
+1.  When using useSelector and subscribing to the store, you need to subscribe to the exact portion of the store
+const store = useSelector((store)=> store) // subscrbing to whole store
+const items = store.cart.items
+// Anything changes in store store changes, we are not concerned about that, so subscribe only to the portion of the store that is important to our component
+
+// This cause a lot of performance issues 
+
+You should use: 
+Very Efficient- 
+const items = useSelector((store)=> store.cart.items) // subscrbing to whole store
+
+2. AppStore has 'reducer' and slice has 'reducers'
+
+- a reducer is a combination of small reducers
+A app store is combination of cartReducer, 
+A cart reducer is a combination of small reducers in cart ex: add to cart, clear cart etc
+
+Immer is used by redux behind the scenes
+
+3. 
