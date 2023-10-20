@@ -159,7 +159,8 @@ Dont provide => default value
 
 Episode 12- Let's build our store
 
-# Redux-Toolkit: 
+# Redux-Toolkit:
+
 - Use to manage state
 - Redux is not mandatory
 - Use Redux wisely and when it is required
@@ -169,10 +170,12 @@ Episode 12- Let's build our store
 - Another option is zustand for state management
 
 why use ?
+
 - when building large scare application, redux offers many functionality which eases the process of state management
 - Application become easier to debug
 
 # Steps:
+
 - Install @reduxjs/toolkit react-redux
 - Build our store
 - Connect our store to the app
@@ -180,24 +183,69 @@ why use ?
 - Dispatch Action
 - Read the selector
 
-# Note (very important): 
+# Note (very important):
+
 1.  When using useSelector and subscribing to the store, you need to subscribe to the exact portion of the store
-const store = useSelector((store)=> store) // subscrbing to whole store
-const items = store.cart.items
-// Anything changes in store store changes, we are not concerned about that, so subscribe only to the portion of the store that is important to our component
+    const store = useSelector((store)=> store) // subscrbing to whole store
+    const items = store.cart.items
+    // Anything changes in store store changes, we are not concerned about that, so subscribe only to the portion of the store that is important to our component
 
-// This cause a lot of performance issues 
+// This cause a lot of performance issues
 
-You should use: 
-Very Efficient- 
+You should use:
+Very Efficient-
 const items = useSelector((store)=> store.cart.items) // subscrbing to whole store
 
 2. AppStore has 'reducer' and slice has 'reducers'
 
 - a reducer is a combination of small reducers
-A app store is combination of cartReducer, 
-A cart reducer is a combination of small reducers in cart ex: add to cart, clear cart etc
+  A app store is combination of cartReducer,
+  A cart reducer is a combination of small reducers in cart ex: add to cart, clear cart etc
 
 Immer is used by redux behind the scenes
 
-3. 
+# Episode: 13: Time for the test (Developer testing)
+
+Type of testing:
+
+- Manual testing: ex: contact us page- redered okay
+  If a change is made in code, will you check all the pages yourself again ?
+  Everytime when you write a new code in project, whenever you write a single line of code in project it can introduce bugs in different parts of the app
+
+- Write code to test the application
+  (Testing is part of writing code)
+
+Different type of testing that can be done by writing code: (first two testing are developers testing)
+
+- Unit Testing: Testing the react component in isolation
+- Integration Testing: Testing the integration of component Ex: search + click search => so many components collaborated with each other to deliver the feature
+
+- End to End Testing (E2E testing): Testing the react application from the point the user lands on the page to user leaving the app. i.e what user will do ex: login, add to cart, place order, logout.
+  Tools: cypress, selenium etc
+
+Setting the react application for tests:
+
+- React Testing library: built on DOM testing library -> uses jest -> uses babel
+
+# Setting up testing in our app
+
+- Install react testing library
+- Install jest
+- Install babel dependencies
+- Configure babel
+- Configure parcel config file to disable default babel transpilation and instead use our babel config
+- Jest config: npx jest config (execute)
+- js dom: web browser like environment
+- Install jsdom library
+- Install @babel/preset-react to make jsx work in test cases
+- Include @babel/preset-react inside my babel config : This helps our tests convert jsx to html for rendering
+- Install @testing-library/jest-dom
+
+File structure:
+
+- Any file present in **tests** will be considered as test
+  or
+- Any file ending with .test.js, _.test.ts, .spec.js, spec.ts_ will be considered as test
+- console.log returns a react element/ jsx/ react fibre/ virtual dom
+
+- React fibre node/ jsx element/ react fibre node/ virtual node object: screen.getAllByRole().. etc

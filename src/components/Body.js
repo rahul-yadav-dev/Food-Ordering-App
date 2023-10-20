@@ -42,7 +42,8 @@ const Body = () => {
 
         <div className="relative"></div>
         <input
-          type="text "
+          type="text"
+          data-testid="searchInput"
           className="m-4 block border border-gray-300 rounded-lg p-4 w-[600px] focus:ring-blue-500 "
           placeholder="Find your restaurant"
           value={queryString}

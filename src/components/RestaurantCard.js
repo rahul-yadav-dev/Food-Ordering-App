@@ -5,11 +5,12 @@ import { useContext } from "react";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+
   const data = useContext(UserContext);
 
   return (
-    <Link to={"/restaurants/" + resData.id}>
-      <div className=" rounded-lg m-4 p-4 w-[250px] bg-gray-300 hover:bg-blue-300 flex-shrink">
+    <div data-testid='resCard' className="rounded-lg m-4 p-4 w-[250px] bg-gray-300 hover:bg-blue-300 flex-shrink">
+      <Link to={"/restaurants/" + resData.id}>
         <img
           className="res-image h-[250px] rounded-lg"
           src={cdnUrl + resData.cloudinaryImageId}
@@ -25,8 +26,8 @@ const RestaurantCard = (props) => {
           <h4 className="lightWeight">{resData.sla.lastMileTravel} kms</h4>
         )}
         {data.loggedInUser}
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

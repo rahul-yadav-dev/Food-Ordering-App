@@ -1,0 +1,79 @@
+{
+  "id": "448484",
+  "name": "Barbeque Nation",
+  "cloudinaryImageId": "ui9mk16irzqkgtlp8mxp",
+  "locality": "Sector 66",
+  "areaName": "M3M IFC CENTER",
+  "costForTwo": "₹600 for two",
+  "cuisines": [
+    "North Indian",
+    "Barbecue",
+    "Biryani",
+    "Kebabs",
+    "Mughlai",
+    "Desserts"
+  ],
+  "avgRating": 3.7,
+  "feeDetails": {
+    "restaurantId": "448484",
+    "fees": [
+      {
+        "name": "BASE_DISTANCE",
+        "fee": 6200
+      },
+      {
+        "name": "BASE_TIME"
+      },
+      {
+        "name": "ANCILLARY_SURGE_FEE"
+      }
+    ],
+    "totalFee": 6200
+  },
+  "parentId": "2438",
+  "avgRatingString": "3.7",
+  "totalRatingsString": "100+",
+  "sla": {
+    "deliveryTime": 45,
+    "lastMileTravel": 3,
+    "serviceability": "SERVICEABLE",
+    "slaString": "45 mins",
+    "lastMileTravelString": "3.0 km",
+    "iconType": "ICON_TYPE_EMPTY"
+  },
+  "availability": {
+    "nextCloseTime": "2023-10-19 23:30:00",
+    "opened": true
+  },
+  "badges": {},
+  "isOpen": true,
+  "type": "F",
+  "badgesV2": {
+    "entityBadges": {
+      "imageBased": {},
+      "textBased": {},
+      "textExtendedBadges": {}
+    }
+  },
+  "aggregatedDiscountInfoV3": {
+    "header": "40% OFF",
+    "subHeader": "UPTO ₹80"
+  },
+  "orderabilityCommunication": {
+    "title": {},
+    "subTitle": {},
+    "message": {},
+    "customIcon": {}
+  },
+  "differentiatedUi": {
+    "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+    "differentiatedUiMediaDetails": {
+      "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+      "lottie": {},
+      "video": {}
+    }
+  },
+  "reviewsSummary": {},
+  "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+  "restaurantOfferPresentationInfo": {}
+}

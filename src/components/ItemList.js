@@ -17,6 +17,7 @@ const ItemList = ({ items }) => {
           <div
             key={item.card.info.id}
             className="m-2 p-2 border-gray-300 border-b-2 text-left flex justify-center"
+            data-testid="foodItems"
           >
             <div className="py-2 w-7/12 ">
               <span>{item.card.info.name}</span>

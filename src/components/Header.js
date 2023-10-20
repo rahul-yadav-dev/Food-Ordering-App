@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
-import logo from "../../resources/logo.png";
 import { useState, useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import { logoUrl } from "../utils/constants";
 
 const Header = () => {
   const [loginButton, setLoginButton] = useState("Login");
   const userData = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
 
   return (
     <div className="flex justify-between bg-pink-200 sm:bg-green-400 shadow-md m-2">
       <div id="logo-container">
         <Link to="/">
-          <img className="w-28 h-full" src={logo} />
+          <img className="w-28 h-full" src={logoUrl} />
         </Link>
       </div>
       <div className="nav-bar flex items-center">
@@ -36,17 +35,17 @@ const Header = () => {
           </li>
           <li className="px-4 flex">
             <Link to="/cart">
-              <AiOutlineShoppingCart className="text-lg mt-[2px]" />
+              <div className="">{`Cart- (${cartItems.length} items)`}</div>
             </Link>
-            <div className="">{cartItems.length}</div>
+           
           </li>
           <li className="px-4">
             <button
               className="login-btn"
               onClick={() => {
-                loginButton === "login"
-                  ? setLoginButton("logout")
-                  : setLoginButton("login");
+                loginButton === "Login"
+                  ? setLoginButton("Logout")
+                  : setLoginButton("Login");
               }}
             >
               {loginButton}
